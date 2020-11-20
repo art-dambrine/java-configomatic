@@ -14,9 +14,7 @@ public class TestConnexionBase {
 
         requeteEcritureBase(stmt, "INSERT INTO processeur (nom,fabriquant) VALUES('core i5',1)");
 
-        ResultSet rs = null;
-
-        rs = requeteLectureBase(stmt, rs, "SELECT * FROM processeur");
+        ResultSet rs = requeteLectureBase(stmt, "SELECT * FROM processeur");
 
         affichageResultatConsole(rs);
 
