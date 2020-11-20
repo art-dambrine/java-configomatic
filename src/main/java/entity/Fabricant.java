@@ -10,10 +10,6 @@ public class Fabricant {
     private int id;
     private String nom;
 
-
-    public Fabricant() {
-    }
-
     public Fabricant(int id, String nom) {
         this.id = id;
         this.nom = nom;
