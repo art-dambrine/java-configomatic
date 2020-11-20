@@ -16,7 +16,7 @@ CREATE TABLE `processeur` (
   `nom` varchar(255),
   `prix` double,
   `nombre_coeurs` int,
-  `fabriquant` int
+  `fabricant` int
 );
 
 CREATE TABLE `carte_mere` (
@@ -25,7 +25,7 @@ CREATE TABLE `carte_mere` (
   `prix` double,
   `compatibilite_usbc` boolean,
   `port_pci_express` boolean,
-  `fabriquant` int
+  `fabricant` int
 );
 
 CREATE TABLE `carte_graphique` (
@@ -34,7 +34,7 @@ CREATE TABLE `carte_graphique` (
   `prix` double,
   `memoire_graphique_go` int,
   `puissance_tflops` double,
-  `fabriquant` int
+  `fabricant` int
 );
 
 CREATE TABLE `disque_dur` (
@@ -42,7 +42,7 @@ CREATE TABLE `disque_dur` (
   `nom` varchar(255),
   `prix` double,
   `capacite_go` int,
-  `fabriquant` int
+  `fabricant` int
 );
 
 CREATE TABLE `memoire` (
@@ -51,23 +51,23 @@ CREATE TABLE `memoire` (
   `prix` double,
   `capacite_go` int,
   `type` varchar(255),
-  `fabriquant` int
+  `fabricant` int
 );
 
-CREATE TABLE `fabriquant` (
+CREATE TABLE `fabricant` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `nom` varchar(255)
 );
 
-ALTER TABLE `disque_dur` ADD FOREIGN KEY (`fabriquant`) REFERENCES `fabriquant` (`id`);
+ALTER TABLE `disque_dur` ADD FOREIGN KEY (`fabricant`) REFERENCES `fabricant` (`id`);
 
-ALTER TABLE `carte_graphique` ADD FOREIGN KEY (`fabriquant`) REFERENCES `fabriquant` (`id`);
+ALTER TABLE `carte_graphique` ADD FOREIGN KEY (`fabricant`) REFERENCES `fabricant` (`id`);
 
-ALTER TABLE `memoire` ADD FOREIGN KEY (`fabriquant`) REFERENCES `fabriquant` (`id`);
+ALTER TABLE `memoire` ADD FOREIGN KEY (`fabricant`) REFERENCES `fabricant` (`id`);
 
-ALTER TABLE `processeur` ADD FOREIGN KEY (`fabriquant`) REFERENCES `fabriquant` (`id`);
+ALTER TABLE `processeur` ADD FOREIGN KEY (`fabricant`) REFERENCES `fabricant` (`id`);
 
-ALTER TABLE `carte_mere` ADD FOREIGN KEY (`fabriquant`) REFERENCES `fabriquant` (`id`);
+ALTER TABLE `carte_mere` ADD FOREIGN KEY (`fabricant`) REFERENCES `fabricant` (`id`);
 
 ALTER TABLE `ordinateur` ADD FOREIGN KEY (`carte_mere`) REFERENCES `carte_mere` (`id`);
 

@@ -5,5 +5,5 @@ TRUNCATE carte_mere;
 TRUNCATE carte_graphique;
 TRUNCATE disque_dur;
 TRUNCATE memoire;
-TRUNCATE fabriquant;
+TRUNCATE  fabricant;
 SET FOREIGN_KEY_CHECKS = 1;

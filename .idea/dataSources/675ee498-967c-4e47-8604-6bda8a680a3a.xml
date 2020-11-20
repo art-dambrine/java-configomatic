@@ -879,7 +879,7 @@
     <table id="277" parent="2" name="carte_graphique"/>
     <table id="278" parent="2" name="carte_mere"/>
     <table id="279" parent="2" name="disque_dur"/>
-    <table id="280" parent="2" name="fabriquant"/>
+    <table id="280" parent="2" name="fabricant"/>
     <table id="281" parent="2" name="memoire"/>
     <table id="282" parent="2" name="ordinateur"/>
     <table id="283" parent="2" name="processeur"/>
@@ -905,12 +905,12 @@
       <Position>5</Position>
       <DataType>double|0s</DataType>
     </column>
-    <column id="289" parent="277" name="fabriquant">
+    <column id="289" parent="277" name="fabricant">
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="290" parent="277" name="fabriquant">
-      <ColNames>fabriquant</ColNames>
+    <index id="290" parent="277" name="fabricant">
+      <ColNames>fabricant</ColNames>
       <Type>btree</Type>
     </index>
     <key id="291" parent="277" name="PRIMARY">
@@ -919,8 +919,8 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="292" parent="277" name="carte_graphique_ibfk_1">
-      <ColNames>fabriquant</ColNames>
-      <RefTableName>fabriquant</RefTableName>
+      <ColNames>fabricant</ColNames>
+      <RefTableName>fabricant</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="293" parent="278" name="id">
@@ -945,12 +945,12 @@
       <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
     </column>
-    <column id="298" parent="278" name="fabriquant">
+    <column id="298" parent="278" name="fabricant">
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="299" parent="278" name="fabriquant">
-      <ColNames>fabriquant</ColNames>
+    <index id="299" parent="278" name="fabricant">
+      <ColNames>fabricant</ColNames>
       <Type>btree</Type>
     </index>
     <key id="300" parent="278" name="PRIMARY">
@@ -959,8 +959,8 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="301" parent="278" name="carte_mere_ibfk_1">
-      <ColNames>fabriquant</ColNames>
-      <RefTableName>fabriquant</RefTableName>
+      <ColNames>fabricant</ColNames>
+      <RefTableName>fabricant</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="302" parent="279" name="id">
@@ -981,12 +981,12 @@
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="306" parent="279" name="fabriquant">
+    <column id="306" parent="279" name="fabricant">
       <Position>5</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="307" parent="279" name="fabriquant">
-      <ColNames>fabriquant</ColNames>
+    <index id="307" parent="279" name="fabricant">
+      <ColNames>fabricant</ColNames>
       <Type>btree</Type>
     </index>
     <key id="308" parent="279" name="PRIMARY">
@@ -995,8 +995,8 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="309" parent="279" name="disque_dur_ibfk_1">
-      <ColNames>fabriquant</ColNames>
-      <RefTableName>fabriquant</RefTableName>
+      <ColNames>fabricant</ColNames>
+      <RefTableName>fabricant</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="310" parent="280" name="id">
@@ -1036,12 +1036,12 @@
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="318" parent="281" name="fabriquant">
+    <column id="318" parent="281" name="fabricant">
       <Position>6</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="319" parent="281" name="fabriquant">
-      <ColNames>fabriquant</ColNames>
+    <index id="319" parent="281" name="fabricant">
+      <ColNames>fabricant</ColNames>
       <Type>btree</Type>
     </index>
     <key id="320" parent="281" name="PRIMARY">
@@ -1050,8 +1050,8 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="321" parent="281" name="memoire_ibfk_1">
-      <ColNames>fabriquant</ColNames>
-      <RefTableName>fabriquant</RefTableName>
+      <ColNames>fabricant</ColNames>
+      <RefTableName>fabricant</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="322" parent="282" name="id">
@@ -1164,12 +1164,12 @@
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="347" parent="283" name="fabriquant">
+    <column id="347" parent="283" name="fabricant">
       <Position>5</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="348" parent="283" name="fabriquant">
-      <ColNames>fabriquant</ColNames>
+    <index id="348" parent="283" name="fabricant">
+      <ColNames>fabricant</ColNames>
       <Type>btree</Type>
     </index>
     <key id="349" parent="283" name="PRIMARY">
@@ -1178,8 +1178,8 @@
       <Primary>1</Primary>
     </key>
     <foreign-key id="350" parent="283" name="processeur_ibfk_1">
-      <ColNames>fabriquant</ColNames>
-      <RefTableName>fabriquant</RefTableName>
+      <ColNames>fabricant</ColNames>
+      <RefTableName>fabricant</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
   </database-model>
