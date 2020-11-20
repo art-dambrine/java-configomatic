@@ -6,16 +6,18 @@ import java.util.List;
 
 import static dbtools.Dbtools.*;
 
-public class Fabricant implements Readable {
+public class Fabricant {
     private int id;
     private String nom;
-
-    public Fabricant() {
-    }
 
     public Fabricant(int id, String nom) {
         this.id = id;
         this.nom = nom;
+    }
+
+    public Fabricant(Fabricant fabricant){
+        this.id = fabricant.id;
+        this.nom = fabricant.nom;
     }
 
     @Override
@@ -26,14 +28,14 @@ public class Fabricant implements Readable {
                 '}';
     }
 
-    @Override
-    public List<Readable> fecthAll() throws SQLException {
+
+    public static List<Fabricant> fecthAll() throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);
 
         ResultSet rs = requeteLectureBase(stmt, "SELECT * FROM fabricant");
 
-        List<Readable> mesFabricants = new ArrayList<>();
+        List<Fabricant> mesFabricants = new ArrayList<>();
         while (rs.next())
             mesFabricants.add(new Fabricant(rs.getInt("id"), rs.getString("nom")));
 
@@ -42,8 +44,8 @@ public class Fabricant implements Readable {
     }
 
 
-    @Override
-    public Readable findOne(int id) throws SQLException {
+
+    public static Fabricant findOne(int id) throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);
 

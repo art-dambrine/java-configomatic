@@ -4,22 +4,21 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import static dbtools.Dbtools.*;
 
-public class Processeur implements Readable {
+public class Processeur {
 
     private int id;
     private String nom;
     private float prix;
     private int nombreCoeurs;
-    private Fabricant fabricant;
+    private int fabricant;
 
-    public Processeur() {
-    }
 
-    public Processeur(int id, String nom, float prix, int nombreCoeurs, Fabricant fabricant) {
+    public Processeur(int id, String nom, float prix, int nombreCoeurs, int fabricant) {
         this.id = id;
         this.nom = nom;
         this.prix = prix;
@@ -38,29 +37,41 @@ public class Processeur implements Readable {
                 '}';
     }
 
-    @Override
-    public List<Readable> fecthAll() throws SQLException {
-        return null;
+
+    public static List<Processeur> fecthAll() throws SQLException {
+        Connection maConnection = getConnexion();
+        Statement stmt = getStatement(maConnection);
+
+        ResultSet rs = requeteLectureBase(stmt, "SELECT * FROM processeur");
+
+        List<Processeur> mesProcesseurs = new ArrayList<>();
+        while (rs.next())
+            mesProcesseurs.add(new Processeur(
+                    rs.getInt("id"),
+                    rs.getString("nom"),
+                    rs.getFloat("prix"),
+                    rs.getInt("nombre_coeurs"),
+                    rs.getInt("fabricant")
+            ));
+
+        libererConnexion(maConnection, stmt);
+        return mesProcesseurs;
     }
 
-    @Override
-    public Readable findOne(int id) throws SQLException {
+
+    public static Processeur findOne(int id) throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);
 
         ResultSet rs = requeteLectureBase(stmt, "SELECT * FROM processeur WHERE id=" + id);
 
         rs.next();
-
-        Readable fabricant = new Fabricant();
-        fabricant = fabricant.findOne(rs.getInt("fabricant"));
-
         Processeur processeur = new Processeur(
                 rs.getInt("id"),
                 rs.getString("nom"),
                 rs.getFloat("prix"),
                 rs.getInt("nombre_coeurs"),
-                (Fabricant) fabricant
+                rs.getInt("fabricant")
         );
 
         libererConnexion(maConnection, stmt);

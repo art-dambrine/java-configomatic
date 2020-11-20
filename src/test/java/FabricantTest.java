@@ -1,5 +1,4 @@
 import entity.Fabricant;
-import entity.Readable;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,25 +13,24 @@ public class FabricantTest {
     }
 
     private static void testFindOneFabricant() {
-        Fabricant fabricant = new Fabricant();
 
         try {
-            System.out.println(fabricant.findOne(1));
+            System.out.println(Fabricant.findOne(1));
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
 
     private static void testFetchAllFabricants() {
-        Fabricant fabricant = new Fabricant();
-        List<Readable> mesFabricants = new ArrayList<>();
+
+        List<Fabricant> mesFabricants = new ArrayList<>();
 
         try {
-            mesFabricants = fabricant.fecthAll();
+            mesFabricants = Fabricant.fecthAll();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
-        for (Readable monFabricant : mesFabricants) System.out.println(monFabricant.toString());
+        for (Fabricant monFabricant : mesFabricants) System.out.println(monFabricant.toString());
     }
 }
