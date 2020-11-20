@@ -1,0 +1,12 @@
+INSERT INTO fabriquant (nom) VALUES ('Intel');
+INSERT INTO fabriquant (nom) VALUES ('AMD');
+INSERT INTO fabriquant (nom) VALUES ('Apple');
+INSERT INTO fabriquant (nom) VALUES ('HP');
+INSERT INTO fabriquant (nom) VALUES ('Dell');
+INSERT INTO fabriquant (nom) VALUES ('Lenovo');
+INSERT INTO fabriquant (nom) VALUES ('Asus');
+INSERT INTO fabriquant (nom) VALUES ('Nvidia');
+INSERT INTO fabriquant (nom) VALUES ('Micron');
+INSERT INTO fabriquant (nom) VALUES ('Segate');
+INSERT INTO fabriquant (nom) VALUES ('Corsair');
+INSERT INTO fabriquant (nom) VALUES ('Crucial');
