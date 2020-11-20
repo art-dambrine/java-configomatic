@@ -6,9 +6,12 @@ import java.util.List;
 
 import static dbtools.Dbtools.*;
 
-public class Fabricant {
+public class Fabricant implements Readable {
     private int id;
     private String nom;
+
+    public Fabricant() {
+    }
 
     public Fabricant(int id, String nom) {
         this.id = id;
@@ -23,20 +26,33 @@ public class Fabricant {
                 '}';
     }
 
-
-    public static List<Fabricant> getAllFabricants() throws SQLException {
+    @Override
+    public List<Readable> fecthAll() throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);
 
         ResultSet rs = requeteLectureBase(stmt, "SELECT * FROM fabricant");
 
-        List<Fabricant> mesFabricants = new ArrayList<>();
-
+        List<Readable> mesFabricants = new ArrayList<>();
         while (rs.next())
             mesFabricants.add(new Fabricant(rs.getInt("id"), rs.getString("nom")));
 
         libererConnexion(maConnection, stmt);
-
         return mesFabricants;
+    }
+
+
+    @Override
+    public Readable findOne(int id) throws SQLException {
+        Connection maConnection = getConnexion();
+        Statement stmt = getStatement(maConnection);
+
+        ResultSet rs = requeteLectureBase(stmt, "SELECT * FROM fabricant WHERE id=" + id);
+
+        rs.next();
+        Fabricant monFabricant = new Fabricant(rs.getInt("id"), rs.getString("nom"));
+
+        libererConnexion(maConnection, stmt);
+        return monFabricant;
     }
 }

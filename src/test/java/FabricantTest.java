@@ -1,23 +1,38 @@
 import entity.Fabricant;
+import entity.Readable;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static entity.Fabricant.getAllFabricants;
-
 public class FabricantTest {
     public static void main(String[] args) {
 
-        List<Fabricant> mesFabricants = null;
+        testFindOneFabricant();
+        testFetchAllFabricants();
+
+    }
+
+    private static void testFindOneFabricant() {
+        Fabricant fabricant = new Fabricant();
 
         try {
-            mesFabricants = new ArrayList<>(getAllFabricants());
+            System.out.println(fabricant.findOne(1));
         } catch (SQLException throwables) {
-            System.out.println("Erreur dans le chargement de la liste de fabricants.");
+            throwables.printStackTrace();
+        }
+    }
+
+    private static void testFetchAllFabricants() {
+        Fabricant fabricant = new Fabricant();
+        List<Readable> mesFabricants = new ArrayList<>();
+
+        try {
+            mesFabricants = fabricant.fecthAll();
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
-        for (Fabricant monFabricant : mesFabricants) System.out.println(monFabricant.toString());
+        for (Readable monFabricant : mesFabricants) System.out.println(monFabricant.toString());
     }
 }
