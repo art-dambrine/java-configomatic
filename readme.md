@@ -25,3 +25,8 @@ Schéma de notre base de donnée :
 Bonus : rédaction des tests unitaires (test de lecture des composants et fabricants)
 
 ![first-test-junit](img/first-test-junit.png)
+
+## Deuxième séance (24-11-2020)
+
+- Mise en place des deux servelets de base (/ordinateurs, /config)
+- Design minimal de la webapp
