@@ -20,10 +20,10 @@
                 <a class="nav-link" href="<%= application.getContextPath() %>/">Home</a>
             </li>
             <li class="nav-item <% if(request.getServletPath().equals("/WEB-INF/ordinateurs.jsp")) out.print("active");%>">
-                <a class="nav-link" href="<%= application.getContextPath() %>/ordinateurs">Liste des PC</a>
+                <a class="nav-link" href="<%= application.getContextPath() %>/ordinateurs">Ordinateurs</a>
             </li>
             <li class="nav-item <% if(request.getServletPath().equals("/WEB-INF/config.jsp")) out.print("active");%>">
-                <a class="nav-link" href="<%= application.getContextPath() %>/config">Création de PC</a>
+                <a class="nav-link" href="<%= application.getContextPath() %>/config">Config</a>
             </li>
         </ul>
     </div>
