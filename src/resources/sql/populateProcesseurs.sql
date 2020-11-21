@@ -10,4 +10,4 @@ INSERT INTO processeur (nom, prix, nombre_coeurs,  fabricant) VALUES ('Ryzen 7',
 INSERT INTO processeur (nom, prix, nombre_coeurs,  fabricant) VALUES ('Ryzen 9', 300, 8, 2);
 
 -- Processeurs Apple :
-INSERT INTO processeur (nom, prix, nombre_coeurs,  fabricant) VALUES ('M1', 200, 8, 2);
+INSERT INTO processeur (nom, prix, nombre_coeurs,  fabricant) VALUES ('M1', 200, 8, 3);

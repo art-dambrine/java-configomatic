@@ -29,7 +29,7 @@ public class Fabricant {
     }
 
 
-    public static List<Fabricant> fecthAll() throws SQLException {
+    public static List<Fabricant> fetchAll() throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);
 

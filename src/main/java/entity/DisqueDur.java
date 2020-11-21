@@ -9,90 +9,90 @@ import java.util.List;
 
 import static dbtools.Dbtools.*;
 
-public class Processeur {
+public class DisqueDur {
 
     private int id;
     private String nom;
     private float prix;
-    private int nombreCoeurs;
+    private int capaciteGo;
     private Fabricant fabricant;
 
-
-    public Processeur(int id, String nom, float prix, int nombreCoeurs, Fabricant fabricant) {
+    public DisqueDur(int id, String nom, float prix, int capaciteGo, Fabricant fabricant) {
         this.id = id;
         this.nom = nom;
         this.prix = prix;
-        this.nombreCoeurs = nombreCoeurs;
+        this.capaciteGo = capaciteGo;
         this.fabricant = fabricant;
     }
 
     @Override
     public String toString() {
-        return "Processeur{" +
+        return "DisqueDur{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prix=" + prix +
-                ", nombreCoeurs=" + nombreCoeurs +
+                ", capaciteGo=" + capaciteGo +
                 ", fabricant=" + fabricant +
                 '}';
     }
 
-
-    public static List<Processeur> fetchAll() throws SQLException {
+    public static List<DisqueDur> fetchAll() throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);
 
         ResultSet rs = requeteLectureBase(stmt,
-                "SELECT processeur.id as 'id',\n" +
-                        "       processeur.nom,\n" +
-                        "       processeur.prix,\n" +
-                        "       processeur.nombre_coeurs,\n" +
-                        "       fabricant.id as 'fabricant_id',\n" +
+                "SELECT disque_dur.id as 'id',\n" +
+                        "       disque_dur.nom,\n" +
+                        "       disque_dur.prix,\n" +
+                        "       disque_dur.capacite_go,\n" +
+                        "       fabricant.id  as 'fabricant_id',\n" +
                         "       fabricant.nom as 'fabricant_nom'\n" +
-                        "FROM processeur,\n" +
+                        "FROM disque_dur,\n" +
                         "     fabricant\n" +
-                        "WHERE processeur.fabricant = fabricant.id\n");
+                        "WHERE disque_dur.fabricant = fabricant.id");
 
-        List<Processeur> mesProcesseurs = new ArrayList<>();
+        List<DisqueDur> mesDisqueDurs = new ArrayList<>();
         while (rs.next())
-            mesProcesseurs.add(new Processeur(
+            mesDisqueDurs.add(new DisqueDur(
                     rs.getInt("id"),
                     rs.getString("nom"),
                     rs.getFloat("prix"),
-                    rs.getInt("nombre_coeurs"),
+                    rs.getInt("capacite_go"),
                     new Fabricant(rs.getInt("fabricant_id"), rs.getString("fabricant_nom"))
             ));
 
+
         libererConnexion(maConnection, stmt);
-        return mesProcesseurs;
+        return mesDisqueDurs;
     }
 
-
-    public static Processeur findOne(int id) throws SQLException {
+    public static DisqueDur findOne(int id) throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);
 
         ResultSet rs = requeteLectureBase(stmt,
-                "SELECT processeur.id as 'id',\n" +
-                        "       processeur.nom,\n" +
-                        "       processeur.prix,\n" +
-                        "       processeur.nombre_coeurs,\n" +
+                "SELECT disque_dur.id as 'id',\n" +
+                        "       disque_dur.nom,\n" +
+                        "       disque_dur.prix,\n" +
+                        "       disque_dur.capacite_go,\n" +
                         "       fabricant.id as 'fabricant_id',\n" +
                         "       fabricant.nom as 'fabricant_nom'\n" +
-                        "FROM processeur,\n" +
+                        "FROM disque_dur,\n" +
                         "     fabricant\n" +
-                        "WHERE processeur.id = " + id + " AND processeur.fabricant = fabricant.id\n");
+                        "WHERE\n" +
+                        "        disque_dur.id = " + id + "\n" +
+                        "  AND disque_dur.fabricant = fabricant.id");
 
         rs.next();
-        Processeur processeur = new Processeur(
+        DisqueDur monDisqueDur = new DisqueDur(
                 rs.getInt("id"),
                 rs.getString("nom"),
                 rs.getFloat("prix"),
-                rs.getInt("nombre_coeurs"),
+                rs.getInt("capacite_go"),
                 new Fabricant(rs.getInt("fabricant_id"), rs.getString("fabricant_nom"))
         );
 
         libererConnexion(maConnection, stmt);
-        return processeur;
+        return monDisqueDur;
     }
 }
