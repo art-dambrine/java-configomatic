@@ -18,6 +18,10 @@ Nous avons fait le choix de créer une application de montage de PC de bureau cu
 
 Schéma de notre base de donnée :
 
+![dbdiagram](img/dbdiagram.png)
+
+
+
 Bonus : rédaction des tests unitaires (test de lecture des composants et fabricants)
 
 ![first-test-junit](img/first-test-junit.png)
