@@ -9,7 +9,6 @@
 <html>
 <head>
     <%@ include file="inclusionheader.jsp" %>
-    <title>Title</title>
 </head>
 <body>
 

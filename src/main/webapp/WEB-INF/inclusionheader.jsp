@@ -13,3 +13,10 @@
 
 <%-- Custom CSS --%>
 <link rel="stylesheet" href="css/global-style.css">
+
+<%-- Favicon --%>
+<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+<%-- Title --%>
+<title>ConfigoMatic</title>

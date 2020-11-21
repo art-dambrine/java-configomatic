@@ -9,7 +9,6 @@
 <html>
 <head>
     <%@ include file="WEB-INF/inclusionheader.jsp" %>
-    <title>Title</title>
 </head>
 <body>
 
@@ -17,7 +16,7 @@
 
 <div class="content-container">
 
-    <h2>Bienvenue dans l'application de Congig'Omatic</h2>
+    <h2>Bienvenue dans l'application ConfigoMatic</h2>
 
 </div>
 
