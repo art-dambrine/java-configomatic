@@ -30,7 +30,15 @@ Bonus : rédaction des tests unitaires (test de lecture des composants et fabric
 
 - Mise en place des deux servelets de base (/ordinateurs, /config)
 - Design minimal de la webapp
-- Formulaire de config d'un ordinateur
+- Création du formulaire config
 
 ![draft-config](img/draft-config.png)
 
+- Enrichissement du formulaire config avec les composants enregistrés en base
+- Calcul du montant total des composants en euros via une fonction JavaScript (calculmontant.js)
+- Création d'une requête ajax d'envoi du formulaire (format application/json)
+- Création d'un servlet dédiée à la création d'ordinateur (/postordinateur)
+
+Note : pour le moment on retourne le contenu du json tel quel
+
+![post-ordinateur-json](img/post-ordinateur-json.png)
