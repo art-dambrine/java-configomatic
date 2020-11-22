@@ -4,6 +4,21 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+/* NavBar */
+
+.nav-github img{
+    margin-top: 1px;
+    opacity: 0.6;
+}
+
+.nav-github img:hover{
+    transition-duration: 0.3s;
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Content */
+
 .content-container {
     padding: 20px;
 }
