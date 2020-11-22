@@ -33,11 +33,12 @@
             <%--Processeur--%>
             <div class="form-group">
                 <label for="inputProcesseur">Processeur</label>
-                <select required class="form-control" id="inputProcesseur">
+                <select required class="form-control" id="inputProcesseur" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez un processeur...</option>
                     <% for (Processeur processeur : processeurs) {
                         out.print(
-                                "<option value=\"" + processeur.getId() + "\">" +
+                                "<option value=\"" + processeur.getId() + "\"" +
+                                        "data-price=\"" + processeur.getPrix() + "\">" +
                                         processeur.getFabricant().getNom() +
                                         " " + processeur.getNom() +
                                         " - " + processeur.getNombreCoeurs() + " coeurs" +
@@ -53,11 +54,12 @@
             <%--Carte mère--%>
             <div class="form-group">
                 <label for="inputCarteMere">Carte mère</label>
-                <select required class="form-control" id="inputCarteMere">
+                <select required class="form-control" id="inputCarteMere" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez une carte mère...</option>
                     <% for (CarteMere carteMere : cartemeres) {
                         out.print(
-                                "<option value=\"" + carteMere.getId() + "\">" +
+                                "<option value=\"" + carteMere.getId() + "\"" +
+                                        "data-price=\"" + carteMere.getPrix() + "\">" +
                                         carteMere.getFabricant().getNom() +
                                         " " + carteMere.getNom()
                         );
@@ -75,11 +77,12 @@
             <%--Memoire RAM--%>
             <div class="form-group">
                 <label for="inputMemoire">RAM</label>
-                <select required class="form-control" id="inputMemoire">
+                <select required class="form-control" id="inputMemoire" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez la RAM...</option>
                     <% for (Memoire memoire : memoires) {
                         out.print(
-                                "<option value=\"" + memoire.getId() + "\">" +
+                                "<option value=\"" + memoire.getId() + "\"" +
+                                        "data-price=\"" + memoire.getPrix() + "\">" +
                                         memoire.getFabricant().getNom() +
                                         " " + memoire.getNom() +
                                         " - " + memoire.getCapaciteGo() + " GO" +
@@ -96,11 +99,12 @@
             <%--Carte Graphique--%>
             <div class="form-group">
                 <label for="inputCarteGraphique">Carte graphique</label>
-                <select required class="form-control" id="inputCarteGraphique">
+                <select required class="form-control" id="inputCarteGraphique" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez une carte graphique...</option>
                     <% for (CarteGraphique carteGraphique : cartegraphiques) {
                         out.print(
-                                "<option value=\"" + carteGraphique.getId() + "\">" +
+                                "<option value=\"" + carteGraphique.getId() + "\"" +
+                                        "data-price=\"" + carteGraphique.getPrix() + "\">" +
                                         carteGraphique.getFabricant().getNom() +
                                         " " + carteGraphique.getNom() +
                                         " - " + carteGraphique.getMemoireGraphique() + " GO" +
@@ -118,11 +122,12 @@
 
             <div class="form-group">
                 <label for="inputDisqueDur">Disque dur</label>
-                <select required class="form-control" id="inputDisqueDur">
+                <select required class="form-control" id="inputDisqueDur" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez un disque dur...</option>
                     <% for (DisqueDur disqueDur : disquedurs) {
                         out.print(
-                                "<option value=\"" + disqueDur.getId() + "\">" +
+                                "<option value=\"" + disqueDur.getId() + "\"" +
+                                        "data-price=\"" + disqueDur.getPrix() + "\">" +
                                         disqueDur.getFabricant().getNom() +
                                         " " + disqueDur.getNom() +
                                         " - " + disqueDur.getCapaciteGo() + " GO" +
@@ -135,7 +140,9 @@
                     Steam.</small>
             </div>
 
+            <p>Montant total : <span id="montant-total">0</span> €</p>
             <button type="submit" class="btn btn-primary">Enregistrer ma config</button>
+
         </form>
 
 
@@ -143,7 +150,7 @@
 
 </div>
 
-
+<script src="js/calculmontant.js"></script>
 <%@ include file="inclusionfooter.jsp" %>
 </body>
 </html>
