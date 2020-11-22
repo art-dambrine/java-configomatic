@@ -28,6 +28,10 @@ body {
     margin: 0 auto;
 }
 
+img {
+    max-width: 100%;
+}
+
 select:invalid {
     color: gray;
 }

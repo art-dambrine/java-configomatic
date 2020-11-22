@@ -18,13 +18,13 @@ Nous avons fait le choix de créer une application de montage de PC de bureau cu
 
 Schéma de notre base de donnée :
 
-![dbdiagram](img/dbdiagram.png)
+![dbdiagram](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/dbdiagram.png)
 
 
 
 Bonus : rédaction des tests unitaires (test de lecture des composants et fabricants)
 
-![first-test-junit](img/first-test-junit.png)
+![first-test-junit](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/first-test-junit.png)
 
 ## Deuxième séance (24-11-2020)
 
@@ -32,7 +32,7 @@ Bonus : rédaction des tests unitaires (test de lecture des composants et fabric
 - Design minimal de la webapp
 - Création du formulaire config
 
-![draft-config](img/draft-config.png)
+![draft-config](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/draft-config.png)
 
 - Enrichissement du formulaire config avec les composants enregistrés en base
 - Calcul du montant total des composants en euros via une fonction JavaScript (calculmontant.js)
@@ -41,4 +41,4 @@ Bonus : rédaction des tests unitaires (test de lecture des composants et fabric
 
 Note : pour le moment on retourne le contenu du json tel quel
 
-![post-ordinateur-json](img/post-ordinateur-json.png)
+![post-ordinateur-json](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/post-ordinateur-json.png)
