@@ -28,12 +28,12 @@
             List<DisqueDur> disquedurs = (List<DisqueDur>) request.getAttribute("disquedurs");
         %>
 
-        <form action="config" method="POST">
+        <form id="myForm">
 
             <%--Processeur--%>
             <div class="form-group">
                 <label for="inputProcesseur">Processeur</label>
-                <select required class="form-control" id="inputProcesseur" onchange="if (this.selectedIndex) calcMontant();">
+                <select required class="form-control" id="inputProcesseur" name="inputProcesseur" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez un processeur...</option>
                     <% for (Processeur processeur : processeurs) {
                         out.print(
@@ -54,7 +54,7 @@
             <%--Carte mère--%>
             <div class="form-group">
                 <label for="inputCarteMere">Carte mère</label>
-                <select required class="form-control" id="inputCarteMere" onchange="if (this.selectedIndex) calcMontant();">
+                <select required class="form-control" id="inputCarteMere" name="inputCarteMere" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez une carte mère...</option>
                     <% for (CarteMere carteMere : cartemeres) {
                         out.print(
@@ -77,7 +77,7 @@
             <%--Memoire RAM--%>
             <div class="form-group">
                 <label for="inputMemoire">RAM</label>
-                <select required class="form-control" id="inputMemoire" onchange="if (this.selectedIndex) calcMontant();">
+                <select required class="form-control" id="inputMemoire" name="inputMemoire" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez la RAM...</option>
                     <% for (Memoire memoire : memoires) {
                         out.print(
@@ -99,7 +99,7 @@
             <%--Carte Graphique--%>
             <div class="form-group">
                 <label for="inputCarteGraphique">Carte graphique</label>
-                <select required class="form-control" id="inputCarteGraphique" onchange="if (this.selectedIndex) calcMontant();">
+                <select required class="form-control" id="inputCarteGraphique" name="inputCarteGraphique" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez une carte graphique...</option>
                     <% for (CarteGraphique carteGraphique : cartegraphiques) {
                         out.print(
@@ -122,7 +122,7 @@
 
             <div class="form-group">
                 <label for="inputDisqueDur">Disque dur</label>
-                <select required class="form-control" id="inputDisqueDur" onchange="if (this.selectedIndex) calcMontant();">
+                <select required class="form-control" id="inputDisqueDur" name="inputDisqueDur" onchange="if (this.selectedIndex) calcMontant();">
                     <option value="" disabled selected>Selectionnez un disque dur...</option>
                     <% for (DisqueDur disqueDur : disquedurs) {
                         out.print(
@@ -141,7 +141,7 @@
             </div>
 
             <p>Montant total : <span id="montant-total">0</span> €</p>
-            <button type="submit" class="btn btn-primary">Enregistrer ma config</button>
+            <button type="submit" class="btn btn-primary" id="button-submit">Enregistrer ma config</button>
 
         </form>
 
@@ -151,6 +151,7 @@
 </div>
 
 <script src="js/calculmontant.js"></script>
+<script src="js/postordinateur.js"></script>
 <%@ include file="inclusionfooter.jsp" %>
 </body>
 </html>

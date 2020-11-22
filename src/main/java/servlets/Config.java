@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "config", urlPatterns = "/config")
-public class config extends HttpServlet {
+public class Config extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/config.jsp").forward(request, response);
+        doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

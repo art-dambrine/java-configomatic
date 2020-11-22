@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "ordinateurs", urlPatterns = "/ordinateurs")
-public class ordinateurs extends HttpServlet {
+public class Ordinateurs extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
