@@ -37,6 +37,45 @@ public class Processeur {
                 '}';
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public int getNombreCoeurs() {
+        return nombreCoeurs;
+    }
+
+    public void setNombreCoeurs(int nombreCoeurs) {
+        this.nombreCoeurs = nombreCoeurs;
+    }
+
+    public Fabricant getFabricant() {
+        return fabricant;
+    }
+
+    public void setFabricant(Fabricant fabricant) {
+        this.fabricant = fabricant;
+    }
 
     public static List<Processeur> fetchAll() throws SQLException {
         Connection maConnection = getConnexion();

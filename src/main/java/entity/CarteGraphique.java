@@ -40,6 +40,54 @@ public class CarteGraphique {
                 '}';
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public int getMemoireGraphique() {
+        return memoireGraphique;
+    }
+
+    public void setMemoireGraphique(int memoireGraphique) {
+        this.memoireGraphique = memoireGraphique;
+    }
+
+    public float getPuissanceTflops() {
+        return puissanceTflops;
+    }
+
+    public void setPuissanceTflops(float puissanceTflops) {
+        this.puissanceTflops = puissanceTflops;
+    }
+
+    public Fabricant getFabricant() {
+        return fabricant;
+    }
+
+    public void setFabricant(Fabricant fabricant) {
+        this.fabricant = fabricant;
+    }
+
     public static List<CarteGraphique> fetchAll() throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);

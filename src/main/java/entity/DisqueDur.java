@@ -36,6 +36,46 @@ public class DisqueDur {
                 '}';
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public int getCapaciteGo() {
+        return capaciteGo;
+    }
+
+    public void setCapaciteGo(int capaciteGo) {
+        this.capaciteGo = capaciteGo;
+    }
+
+    public Fabricant getFabricant() {
+        return fabricant;
+    }
+
+    public void setFabricant(Fabricant fabricant) {
+        this.fabricant = fabricant;
+    }
+
     public static List<DisqueDur> fetchAll() throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);

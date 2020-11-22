@@ -15,11 +15,6 @@ public class Fabricant {
         this.nom = nom;
     }
 
-    public Fabricant(Fabricant fabricant){
-        this.id = fabricant.id;
-        this.nom = fabricant.nom;
-    }
-
     @Override
     public String toString() {
         return "Fabricant{" +
@@ -28,6 +23,21 @@ public class Fabricant {
                 '}';
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
     public static List<Fabricant> fetchAll() throws SQLException {
         Connection maConnection = getConnexion();

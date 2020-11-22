@@ -41,6 +41,54 @@ public class CarteMere {
                 '}';
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public Boolean getCompatibiliteUSBC() {
+        return compatibiliteUSBC;
+    }
+
+    public void setCompatibiliteUSBC(Boolean compatibiliteUSBC) {
+        this.compatibiliteUSBC = compatibiliteUSBC;
+    }
+
+    public Boolean getPortPciExpress() {
+        return portPciExpress;
+    }
+
+    public void setPortPciExpress(Boolean portPciExpress) {
+        this.portPciExpress = portPciExpress;
+    }
+
+    public Fabricant getFabricant() {
+        return fabricant;
+    }
+
+    public void setFabricant(Fabricant fabricant) {
+        this.fabricant = fabricant;
+    }
+
     public static List<CarteMere> fetchAll() throws SQLException {
         Connection maConnection = getConnexion();
         Statement stmt = getStatement(maConnection);
