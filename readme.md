@@ -30,3 +30,7 @@ Bonus : rédaction des tests unitaires (test de lecture des composants et fabric
 
 - Mise en place des deux servelets de base (/ordinateurs, /config)
 - Design minimal de la webapp
+- Formulaire de config d'un ordinateur
+
+![draft-config](img/draft-config.png)
+
