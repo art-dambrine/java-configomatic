@@ -31,7 +31,7 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <%--<th>Ordinateur n°${ordinateur.id}</th>--%>
+                                <%--<th>Ordinateur n°${ordinateur.id}</th>--%>
                         </tr>
                         </thead>
 
@@ -94,7 +94,8 @@
                                         <td class="text-center">
                                             <a
                                                     style="color: #306996">${ordinateur.carteGraphique.fabricant.nom} ${ordinateur.carteGraphique.nom}
-                                                - ${ordinateur.carteGraphique.memoireGraphique} Go - ${ordinateur.carteGraphique.puissanceTflops} TFLOPS
+                                                - ${ordinateur.carteGraphique.memoireGraphique} Go
+                                                - ${ordinateur.carteGraphique.puissanceTflops} TFLOPS
                                             </a>
                                         </td>
                                         <td class="text-center">${ordinateur.carteGraphique.prix}€</td>
@@ -123,7 +124,10 @@
                                 <div class="div-flex">
                                     <p>Prix total : <a style="color: #007bfe">${ordinateur.prix}€</a></p>
                                     <p>
-                                        <button class="btn btn-sm btn-danger">Supprimer la config</button>
+                                        <button class="btn btn-sm btn-danger"
+                                                onclick="handleDeleteOrdinateur(${ordinateur.id},true)">Supprimer la
+                                            config
+                                        </button>
                                     </p>
                                 </div>
                             </th>
@@ -142,7 +146,7 @@
 
 </div>
 
-
+<script src="<%= application.getContextPath() %>/js/handledelete.js"></script>
 <%@ include file="inclusionfooter.jsp" %>
 </body>
 </html>

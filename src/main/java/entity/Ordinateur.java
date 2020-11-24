@@ -324,4 +324,16 @@ public class Ordinateur {
         return monOrdinateur;
     }
 
+    public static boolean deleteOne(int id) throws SQLException {
+        Connection maConnection = getConnexion();
+        Statement stmt = getStatement(maConnection);
+
+        int validation = requeteEcritureBase(stmt, "DELETE FROM ordinateur WHERE id=" + id);
+
+        libererConnexion(maConnection, stmt);
+
+        if (validation == 1) return true;
+        else return false;
+    }
+
 }

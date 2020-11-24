@@ -1,5 +1,11 @@
 <%@ page import="entity.Ordinateur" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="java.text.DateFormat" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.util.TimeZone" %>
+<%@ page import="java.time.LocalDateTime" %>
+<%@ page import="java.time.format.DateTimeFormatter" %><%--
   Created by IntelliJ IDEA.
   User: arthurdambrine
   Date: 21/11/2020
@@ -22,126 +28,49 @@
             List<Ordinateur> ordinateurs = (List<Ordinateur>) request.getAttribute("ordinateurs");
         %>
 
-        <c:forEach items="${ordinateurs}" var="ordinateur">
-            <div class="jumbotron jumbotron-fluid table-ordinateur">
-                <div class="container">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Id.</th>
+                <th class="text-center">Aperçu config</th>
+                <th class="text-center">Prix total</th>
+                <th class="text-center">Date de creation</th>
+                <th class="text-center">Actions</th>
+            </tr>
+            </thead>
 
-                    <!-- Tableau ordinateur -->
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>Ordinateur n°${ordinateur.id}</th>
-                        </tr>
-                        </thead>
+            <tbody>
 
-                        <tbody>
-                        <tr>
-                            <td class="td-recap-composants">
-                                <!-- Tableau recap composants -->
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Composants</th>
-                                        <th class="text-center">Description</th>
-                                        <th class="text-center">Prix</th>
-                                    </tr>
-                                    </thead>
+            <c:forEach items="${ordinateurs}" var="ordinateur">
+                <tr>
+                    <td>${ordinateur.id}.</td>
+                    <td class="text-center"><a href="./ordinateur/${ordinateur.id}">${ordinateur.processeur.nom}
+                        - ${ordinateur.carteGraphique.nom}
+                        - ${ordinateur.memoire.fabricant.nom} ${ordinateur.memoire.capaciteGo} Go</a></td>
+                    <td class="text-center">${ordinateur.prix}€</td>
+                    <td class="text-center"><%
+                        String oldstring = ((Ordinateur) (pageContext.findAttribute("ordinateur"))).getDatetimeCreation().toString();
+                        LocalDateTime datetime = LocalDateTime.parse(oldstring, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S"));
+                        out.print(datetime.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))); // 2011-01-18
+                    %>
+                    </td>
+                    <td class="text-center buttons-actions">
+                        <button class="btn btn-sm btn-primary"
+                                onclick="window.location = './ordinateur/${ordinateur.id}'">Afficher
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="handleDeleteOrdinateur(${ordinateur.id})">Supprimer</button>
+                    </td>
+                </tr>
+            </c:forEach>
 
-                                    <tbody>
-
-                                        <%--Processeur--%>
-                                    <tr>
-                                        <td>Processeur</td>
-                                        <td class="text-center"><a
-                                                style="color: #306996">${ordinateur.processeur.fabricant.nom} ${ordinateur.processeur.nom}
-                                            - ${ordinateur.processeur.nombreCoeurs} coeurs</a>
-                                        </td>
-                                        <td class="text-center">${ordinateur.processeur.prix}€</td>
-                                    </tr>
-
-                                        <%--Carte mère--%>
-                                    <tr>
-                                        <td>Carte Mère</td>
-                                        <td class="text-center">
-                                            <a
-                                                    style="color: #306996">${ordinateur.carteMere.fabricant.nom} ${ordinateur.carteMere.nom}
-                                                <c:if test="${ ordinateur.carteMere.compatibiliteUSBC }">
-                                                    - USBC
-                                                </c:if>
-                                                <c:if test="${ ordinateur.carteMere.portPciExpress }">
-                                                    - PCI Express
-                                                </c:if>
-                                            </a>
-                                        </td>
-                                        <td class="text-center">${ordinateur.carteMere.prix}€</td>
-                                    </tr>
-                                        <%--Memoire--%>
-                                    <tr>
-                                        <td>Memoire</td>
-                                        <td class="text-center">
-                                            <a
-                                                    style="color: #306996">${ordinateur.memoire.fabricant.nom} ${ordinateur.memoire.nom}
-                                                - ${ordinateur.memoire.capaciteGo} Go - ${ordinateur.memoire.type}
-                                            </a>
-                                        </td>
-                                        <td class="text-center">${ordinateur.memoire.prix}€</td>
-                                    </tr>
-
-                                        <%--Carte Graphique--%>
-                                    <tr>
-                                        <td>Carte Graphique</td>
-                                        <td class="text-center">
-                                            <a
-                                                    style="color: #306996">${ordinateur.carteGraphique.fabricant.nom} ${ordinateur.carteGraphique.nom}
-                                                    - ${ordinateur.carteGraphique.memoireGraphique} Go - ${ordinateur.carteGraphique.puissanceTflops} TFLOPS
-                                            </a>
-                                        </td>
-                                        <td class="text-center">${ordinateur.carteGraphique.prix}€</td>
-                                    </tr>
-
-                                        <%--Disque Dur--%>
-                                    <tr>
-                                        <td>Disque Dur</td>
-                                        <td class="text-center">
-                                            <a
-                                                    style="color: #306996">${ordinateur.disqueDur.fabricant.nom} ${ordinateur.disqueDur.nom}
-                                                    - ${ordinateur.disqueDur.capaciteGo} Go
-                                            </a>
-                                        </td>
-                                        <td class="text-center">${ordinateur.disqueDur.prix}€</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <th class="th-other-end">
-                                <div class="div-flex">
-                                    <p>Prix total : <a style="color: #007bfe">${ordinateur.prix}€</a></p>
-                                    <p>
-                                        <button class="btn btn-sm btn-danger">Supprimer la config</button>
-                                    </p>
-                                </div>
-                            </th>
-                        </tr>
-                        </tbody>
-                    </table>
-
-
-                </div>
-            </div>
-
-
-        </c:forEach>
+            </tbody>
+        </table>
 
     </div>
 
 </div>
 
-
+<script src="<%= application.getContextPath() %>/js/handledelete.js"></script>
 <%@ include file="inclusionfooter.jsp" %>
 </body>
 </html>
