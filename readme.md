@@ -42,3 +42,21 @@ Bonus : rédaction des tests unitaires (test de lecture des composants et fabric
 Note : pour le moment on retourne le contenu du json tel quel
 
 ![post-ordinateur-json](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/post-ordinateur-json.png)
+
+- Validation de la requête ajax par le serveur
+
+- Creation de la methode Ordinateur.createOne
+
+- Insertion d'un ordinateur en base après la requête post en ajax
+
+- Affichage des erreur de la requête ajax si il y en a sinon on retourne '201 created'
+
+  TODO : METTRE UNE CAPTURE d'écran de la gestion d'erreur
+
+  
+
+- Création de la methode Ordinateur.fetchAll (problème des requêtes imbriquées, résolu en faisant une grande requête SQL ( 12s d'excution (avec augmentation linéaire du temps de d'excution xordinateurs*5 requêtes ) avec 32 entitées vs 1s avec 32 entitées))
+
+  ![test-fetchall-ordinateurs-requetes-imbriquees](img/test-fetchall-ordinateurs-requetes-imbriquees.png)
+
+Capture : Résultat du test avec requêtes imbriquées successives (32 etitées ordinateur = 12s)
