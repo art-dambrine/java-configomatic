@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="<%= application.getContextPath() %>/">
-        <img src="img/wheels-icon.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+        <img src="<%= application.getContextPath() %>/img/wheels-icon.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
         ConfigoMatic
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -28,7 +28,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link h-100 nav-github" href="https://github.com/art-dambrine/java-configomatic" target="_blank"><img
-                        width="20" height="20" src="img/github.png" title="GitHub" alt="GitHub"></a>
+                        width="20" height="20" src="<%= application.getContextPath() %>/img/github.png" title="GitHub" alt="GitHub"></a>
             </li>
         </ul>
     </div>

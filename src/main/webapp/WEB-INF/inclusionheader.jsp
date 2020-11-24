@@ -12,11 +12,11 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 <%-- Custom CSS --%>
-<link rel="stylesheet" href="css/global-style.css">
+<link rel="stylesheet" href="<%= application.getContextPath() %>/css/global-style.css">
 
 <%-- Favicon --%>
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="<%= application.getContextPath() %>/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<%= application.getContextPath() %>/img/favicon.ico" type="image/x-icon">
 
 <%-- Title --%>
 <title>ConfigoMatic</title>

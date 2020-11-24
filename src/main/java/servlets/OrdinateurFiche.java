@@ -1,5 +1,7 @@
 package servlets;
 
+import entity.Ordinateur;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "OrdinateurFiche", urlPatterns = "/ordinateur/*")
 public class OrdinateurFiche extends HttpServlet {
@@ -15,12 +20,18 @@ public class OrdinateurFiche extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
 
-        String name = request.getPathInfo().substring(1);
+        String pathSubstring = request.getPathInfo().substring(1);
+        int id = Integer.parseInt(pathSubstring);
+        List<Ordinateur> mesOrdinateurs = new ArrayList<>();
 
-        PrintWriter out = response.getWriter();
-        out.print("<h1>Hello " + name + "</h1>");
+        try {
+            mesOrdinateurs.add(Ordinateur.findOne(id));
+            request.setAttribute("ordinateurs", mesOrdinateurs);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/ordinateurfiche.jsp").forward(request, response);
     }
 }
