@@ -15,17 +15,19 @@ let postOrdinateur = async function (json) {
 
     fetch("./postordinateur", requestOptions)
         .then(response => {
-            if(response.status==201){
+            if (response.status == 201) {
                 window.location = "./ordinateurs"
+                return  response.status
             } else {
-                // TODO : Afficher l'erreur à côté du buttonSubmit
                 console.log("Erreur : " + response.status)
-                return response.text()
             }
+            return response.text()
         })
         .then(result => {
-            console.log(JSON.parse(result))
-            feedback.innerText = JSON.parse(result).message;
+            if(result !== 201){
+                console.log(result)
+                feedback.innerText = JSON.parse(result).message
+            }
         })
         .catch(error => {
             console.log('error', error)
