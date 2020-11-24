@@ -28,16 +28,16 @@ public class PostOrdinateur extends HttpServlet {
 
         Boolean isValid = createOrdinateurInDatabase(ordinateur);
 
-        if (!isValid) {
-            // TODO : response HTTP 500
-            response.setStatus(500);
-            System.out.println("Erreur execution Ordinateur.createOne");
-        } else {
-            // TODO : response HTTP 201 created
-            PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter();
+
+        if (isValid) {
             out.print(jsonObject);
             response.setStatus(201);
             System.out.println("Ordinateur.createOne OK");
+        } else {
+            out.print("{\"message\":\"Une erreur est survenue dans la requête.\"}");
+            response.setStatus(500);
+            System.out.println("Erreur execution Ordinateur.createOne");
         }
 
     }

@@ -142,6 +142,7 @@
 
             <p>Montant total : <span id="montant-total">0</span> €</p>
             <button type="submit" class="btn btn-primary" id="button-submit">Enregistrer ma config</button>
+            <span class="text-danger pl-2" id="invalid-feedback"></span>
 
         </form>
 
