@@ -23,10 +23,11 @@
 
 <div class="content-container">
     <div class="centered-container">
-        <h2>Ici consultez la liste des PC créés par la communauté</h2> <br>
         <% // Importation de ma liste des ordinateurs :
             List<Ordinateur> ordinateurs = (List<Ordinateur>) request.getAttribute("ordinateurs");
         %>
+
+        <h2>Consultez les configurations de la communauté</h2> <br>
 
         <table class="table table-hover">
             <thead>
