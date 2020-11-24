@@ -7,6 +7,6 @@ INSERT INTO fabricant (nom) VALUES ('Lenovo');
 INSERT INTO fabricant (nom) VALUES ('Asus');
 INSERT INTO fabricant (nom) VALUES ('Nvidia');
 INSERT INTO fabricant (nom) VALUES ('Micron');
-INSERT INTO fabricant (nom) VALUES ('Segate');
+INSERT INTO fabricant (nom) VALUES ('Seagate');
 INSERT INTO fabricant (nom) VALUES ('Corsair');
 INSERT INTO fabricant (nom) VALUES ('Crucial');

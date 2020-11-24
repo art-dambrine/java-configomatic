@@ -48,17 +48,67 @@
                                     </thead>
 
                                     <tbody>
+
+                                        <%--Processeur--%>
                                     <tr>
                                         <td>Processeur</td>
                                         <td class="text-center"><a
-                                                style="color: #306996">${ordinateur.processeur.fabricant.nom} ${ordinateur.processeur.nom}</a>
+                                                style="color: #306996">${ordinateur.processeur.fabricant.nom} ${ordinateur.processeur.nom}
+                                            - ${ordinateur.processeur.nombreCoeurs} coeurs</a>
                                         </td>
                                         <td class="text-center">${ordinateur.processeur.prix}€</td>
                                     </tr>
+
+                                        <%--Carte mère--%>
                                     <tr>
                                         <td>Carte Mère</td>
-                                        <td class="text-center"><a style="color: #306996">${ordinateur.carteMere.fabricant.nom}</a></td>
+                                        <td class="text-center">
+                                            <a
+                                                    style="color: #306996">${ordinateur.carteMere.fabricant.nom} ${ordinateur.carteMere.nom}
+                                                <c:if test="${ ordinateur.carteMere.compatibiliteUSBC }">
+                                                    - USBC
+                                                </c:if>
+                                                <c:if test="${ ordinateur.carteMere.portPciExpress }">
+                                                    - PCI Express
+                                                </c:if>
+                                            </a>
+                                        </td>
                                         <td class="text-center">${ordinateur.carteMere.prix}€</td>
+                                    </tr>
+                                        <%--Memoire--%>
+                                    <tr>
+                                        <td>Memoire</td>
+                                        <td class="text-center">
+                                            <a
+                                                    style="color: #306996">${ordinateur.memoire.fabricant.nom} ${ordinateur.memoire.nom}
+                                                - ${ordinateur.memoire.capaciteGo} Go - ${ordinateur.memoire.type}
+                                            </a>
+                                        </td>
+                                        <td class="text-center">${ordinateur.memoire.prix}€</td>
+                                    </tr>
+
+                                        <%--Carte Graphique--%>
+                                    <tr>
+                                        <td>Carte Graphique</td>
+                                        <td class="text-center">
+                                            <a
+                                                    style="color: #306996">${ordinateur.carteGraphique.fabricant.nom} ${ordinateur.carteGraphique.nom}
+                                                    - ${ordinateur.carteGraphique.memoireGraphique} Go - ${ordinateur.carteGraphique.puissanceTflops} TFLOPS
+                                            </a>
+                                        </td>
+                                        <td class="text-center">${ordinateur.carteGraphique.prix}€</td>
+                                    </tr>
+
+                                        <%--Disque Dur--%>
+                                    <tr>
+                                        <td>Disque Dur</td>
+                                        <td class="text-center">
+                                            <a
+                                                    style="color: #306996">${ordinateur.disqueDur.fabricant.nom} ${ordinateur.disqueDur.nom}
+                                                    - ${ordinateur.disqueDur.capaciteGo} Go
+                                            </a>
+                                        </td>
+                                        <td class="text-center">${ordinateur.disqueDur.prix}€</td>
                                     </tr>
                                     </tbody>
                                 </table>
