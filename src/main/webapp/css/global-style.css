@@ -6,12 +6,12 @@ body {
 
 /* NavBar */
 
-.nav-github img{
+.nav-github img {
     margin-top: 1px;
     opacity: 0.6;
 }
 
-.nav-github img:hover{
+.nav-github img:hover {
     transition-duration: 0.3s;
     transform: scale(1.05);
     opacity: 0.8;
@@ -34,4 +34,39 @@ img {
 
 select:invalid {
     color: gray;
+}
+
+
+/* Tableau ordinateur */
+
+.div-flex {
+    width: max-content;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.table-ordinateur {
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    border-radius: 20px;
+
+    padding-top: 10px !important;
+    padding-bottom: 0 !important;
+
+    border: solid 4px rgba(0, 0, 0, 0.01);
+    margin-bottom: 20px !important;
+}
+
+.table th {
+    border-top: none !important;
+}
+
+.td-recap-composants {
+    padding-bottom: 0 !important;
+}
+
+.th-other-end {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    border-top: none !important;
 }
