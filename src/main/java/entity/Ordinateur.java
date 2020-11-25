@@ -215,7 +215,8 @@ public class Ordinateur {
                 "AND ordinateur.carte_mere = cm.id\n" +
                 "AND ordinateur.memoire = m.id\n" +
                 "AND ordinateur.carte_graphique = cg.id\n" +
-                "AND ordinateur.disque_dur = dd.id");
+                "AND ordinateur.disque_dur = dd.id\n" +
+                "ORDER BY ordinateur.id DESC");
 
         while (rs.next())
             mesOrdinateurs.add(new Ordinateur(
