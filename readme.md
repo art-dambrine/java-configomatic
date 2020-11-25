@@ -51,12 +51,41 @@ Note : pour le moment on retourne le contenu du json tel quel
 
 - Affichage des erreur de la requête ajax si il y en a sinon on retourne '201 created'
 
-  TODO : METTRE UNE CAPTURE d'écran de la gestion d'erreur
-
   
+
+- Exemples d'erreurs affichées à l'utilisateur :
+
+  1. Si l'utilisateur n'a pas remplit tous les champs
+
+  ![erreur-formulaire-incomplet](img/erreur-formulaire-incomplet.png)
+  
+  2. Si une erreur survient côté serveur on retourne un code 500 
+     + json {"message":"Une erreur est survenue dans la requête"}
+  
+  ![erreur-serveur](img/erreur-serveur.png)
+
+
+
+## Troisième séance (27-11-2020)
 
 - Création de la methode Ordinateur.fetchAll (problème des requêtes imbriquées, résolu en faisant une grande requête SQL ( 12s d'excution (avec augmentation linéaire du temps de d'excution xordinateurs*5 requêtes ) avec 32 entitées vs 1s avec 32 entitées))
 
   ![test-fetchall-ordinateurs-requetes-imbriquees](img/test-fetchall-ordinateurs-requetes-imbriquees.png)
 
 Capture : Résultat du test avec requêtes imbriquées successives (32 etitées ordinateur = 12s)
+
+- Création de la requête SQL d'un seul bloc pour ordinateurs avec composants et fabricants imbriqués
+
+- Création de la vue liste des ordinateurs (/ordinateurs) et fiche individuelle ordinateur (/ordinateur/{id})
+
+- Création de la methode Ordinateur.deleteOne, et de la servlet (DeleteOrdinateur avec /deleteordinateur/{id})
+
+- Ajout des boutons de suppression d'un ordinateur dans la liste des ordinateurs et la fiche individuelle ordinateur
+
+  
+
+1. Liste des ordinateurs
+
+![redirection-liste-ordinateurs](img/redirection-liste-ordinateurs.png)
+
+2. Fiche d'un ordinateur![fiche-ordinateur](img/fiche-ordinateur.png)
