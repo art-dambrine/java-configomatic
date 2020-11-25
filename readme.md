@@ -57,12 +57,12 @@ Note : pour le moment on retourne le contenu du json tel quel
 
   1. Si l'utilisateur n'a pas remplit tous les champs
 
-  ![erreur-formulaire-incomplet](img/erreur-formulaire-incomplet.png)
+  ![erreur-formulaire-incomplet](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/erreur-formulaire-incomplet.png)
   
   2. Si une erreur survient côté serveur on retourne un code 500 
      + json {"message":"Une erreur est survenue dans la requête"}
   
-  ![erreur-serveur](img/erreur-serveur.png)
+  ![erreur-serveur](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/erreur-serveur.png)
 
 
 
@@ -70,7 +70,7 @@ Note : pour le moment on retourne le contenu du json tel quel
 
 - Création de la methode Ordinateur.fetchAll (problème des requêtes imbriquées, résolu en faisant une grande requête SQL ( 12s d'excution (avec augmentation linéaire du temps de d'excution xordinateurs*5 requêtes ) avec 32 entitées vs 1s avec 32 entitées))
 
-  ![test-fetchall-ordinateurs-requetes-imbriquees](img/test-fetchall-ordinateurs-requetes-imbriquees.png)
+  ![test-fetchall-ordinateurs-requetes-imbriquees](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/test-fetchall-ordinateurs-requetes-imbriquees.png)
 
 Capture : Résultat du test avec requêtes imbriquées successives (32 etitées ordinateur = 12s)
 
@@ -86,6 +86,6 @@ Capture : Résultat du test avec requêtes imbriquées successives (32 etitées 
 
 1. Liste des ordinateurs
 
-![redirection-liste-ordinateurs](img/redirection-liste-ordinateurs.png)
+![redirection-liste-ordinateurs](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/redirection-liste-ordinateurs.png)
 
-2. Fiche d'un ordinateur![fiche-ordinateur](img/fiche-ordinateur.png)
+2. Fiche d'un ordinateur![fiche-ordinateur](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/fiche-ordinateur.png)
