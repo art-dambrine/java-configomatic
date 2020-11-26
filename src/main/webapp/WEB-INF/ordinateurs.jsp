@@ -45,7 +45,7 @@
             <c:forEach items="${ordinateurs}" var="ordinateur">
                 <tr>
                     <td>${ordinateur.id}.</td>
-                    <td class="text-center"><a href="./ordinateur/${ordinateur.id}">${ordinateur.processeur.nom}
+                    <td><a href="./ordinateur/${ordinateur.id}">${ordinateur.processeur.nom}
                         - ${ordinateur.carteGraphique.nom}
                         - ${ordinateur.memoire.fabricant.nom} ${ordinateur.memoire.capaciteGo} Go</a></td>
                     <td class="text-center">${ordinateur.prix}€</td>
