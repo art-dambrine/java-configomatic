@@ -89,3 +89,38 @@ Capture : Résultat du test avec requêtes imbriquées successives (32 etitées 
 ![redirection-liste-ordinateurs](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/redirection-liste-ordinateurs.png)
 
 2. Fiche d'un ordinateur![fiche-ordinateur](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/fiche-ordinateur.png)
+
+
+# Bonus : config alternative de la connexion bdd avec Tomcat (poole de connexions)
+
+Configurer le `context.xml` dans le Tomcat
+```
+<Resource name="jdbc/JavaConfigomaticDB" auth="Container" type="javax.sql.DataSource"
+               maxTotal="10" maxIdle="3" maxWaitMillis="10000"
+               username="USERNAME" password="PASSWORD" driverClassName="com.mysql.cj.jdbc.Driver"
+               url="jdbc:mysql://url:3665/NOM_BASE"/>
+```
+
+Configurer le `web.xml` dans l'app Java
+
+```
+<description>JavaConfigomatic</description>
+    <resource-ref>
+        <description>JavaConfigomaticDB Connection</description>
+        <res-ref-name>jdbc/JavaConfigomaticDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+```
+
+Créer la fonction d'accès à la connexion MySQL du Tomcat
+
+```
+public static Connection getConFromTomcatConfig() throws NamingException, SQLException {
+        Context initContext = new InitialContext();
+        Context envContext = (Context) initContext.lookup("java:comp/env");
+        DataSource ds = (DataSource) envContext.lookup("jdbc/JavaConfigomaticDB");
+        Connection conn = ds.getConnection();
+        return conn;
+    }
+```

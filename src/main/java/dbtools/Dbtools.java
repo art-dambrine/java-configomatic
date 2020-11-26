@@ -1,5 +1,9 @@
 package dbtools;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -12,6 +16,20 @@ public class Dbtools {
 
 
     public static Connection getConnexion() {
+
+
+        // On essaye d'abord de se connecter depuis Tomcat :
+
+        try {
+            Connection conn = getConFromTomcatConfig();
+            return conn;
+        } catch (NamingException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
         /*
          * Première étape : trouver le nom du Driver JDBC pour votre SGBD
          * */
@@ -58,6 +76,14 @@ public class Dbtools {
             System.exit(4); // A titre exceptionnel !!!
         }
         return maConnection;
+    }
+
+    public static Connection getConFromTomcatConfig() throws NamingException, SQLException {
+        Context initContext = new InitialContext();
+        Context envContext = (Context) initContext.lookup("java:comp/env");
+        DataSource ds = (DataSource) envContext.lookup("jdbc/JavaConfigomaticDB");
+        Connection conn = ds.getConnection();
+        return conn;
     }
 
     public static Statement getStatement(Connection maConnection) {
