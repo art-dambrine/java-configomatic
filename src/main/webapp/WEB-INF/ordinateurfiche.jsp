@@ -43,7 +43,7 @@
                                     <thead>
                                     <tr>
                                         <th>Composants</th>
-                                        <th class="text-center">Description</th>
+                                        <th class="pl-5">Description</th>
                                         <th class="text-center">Prix</th>
                                     </tr>
                                     </thead>
@@ -53,7 +53,7 @@
                                         <%--Processeur--%>
                                     <tr>
                                         <td>Processeur</td>
-                                        <td class="text-center"><a
+                                        <td class="pl-5"><a
                                                 style="color: #306996">${ordinateur.processeur.fabricant.nom} ${ordinateur.processeur.nom}
                                             - ${ordinateur.processeur.nombreCoeurs} coeurs</a>
                                         </td>
@@ -63,7 +63,7 @@
                                         <%--Carte mère--%>
                                     <tr>
                                         <td>Carte Mère</td>
-                                        <td class="text-center">
+                                        <td class="pl-5">
                                             <a
                                                     style="color: #306996">${ordinateur.carteMere.fabricant.nom} ${ordinateur.carteMere.nom}
                                                 <c:if test="${ ordinateur.carteMere.compatibiliteUSBC }">
@@ -79,7 +79,7 @@
                                         <%--Memoire--%>
                                     <tr>
                                         <td>Memoire</td>
-                                        <td class="text-center">
+                                        <td class="pl-5">
                                             <a
                                                     style="color: #306996">${ordinateur.memoire.fabricant.nom} ${ordinateur.memoire.nom}
                                                 - ${ordinateur.memoire.capaciteGo} Go - ${ordinateur.memoire.type}
@@ -91,7 +91,7 @@
                                         <%--Carte Graphique--%>
                                     <tr>
                                         <td>Carte Graphique</td>
-                                        <td class="text-center">
+                                        <td class="pl-5">
                                             <a
                                                     style="color: #306996">${ordinateur.carteGraphique.fabricant.nom} ${ordinateur.carteGraphique.nom}
                                                 - ${ordinateur.carteGraphique.memoireGraphique} Go
@@ -104,7 +104,7 @@
                                         <%--Disque Dur--%>
                                     <tr>
                                         <td>Disque Dur</td>
-                                        <td class="text-center">
+                                        <td class="pl-5">
                                             <a
                                                     style="color: #306996">${ordinateur.disqueDur.fabricant.nom} ${ordinateur.disqueDur.nom}
                                                 - ${ordinateur.disqueDur.capaciteGo} Go
