@@ -1,5 +1,7 @@
 # Projet Java EE - Configomatic
 
+Projet demo disponible à : https://configomatic.art-dambrine.ovh
+
 ## Introduction - sujet
 Le sujet est libre, la seule contrainte est de créer une application basée entièrement sur la technologie Java EE (Backend et Frontend doivent être développés dans une seule application) cette application doit interagir permettre l’interaction avec l’utilisateur sous forme d’une application web et permettre la mise à jour des informations sur une base de données. Nous privilégierons pour ce projet une approche MVC.
 
@@ -18,13 +20,13 @@ Nous avons fait le choix de créer une application de montage de PC de bureau cu
 
 Schéma de notre base de donnée :
 
-![dbdiagram](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/dbdiagram.png)
+![dbdiagram](img/dbdiagram.png)
 
 
 
 Bonus : rédaction des tests unitaires (test de lecture des composants et fabricants)
 
-![first-test-junit](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/first-test-junit.png)
+![first-test-junit](img/first-test-junit.png)
 
 ## Deuxième séance (24-11-2020)
 
@@ -32,7 +34,7 @@ Bonus : rédaction des tests unitaires (test de lecture des composants et fabric
 - Design minimal de la webapp
 - Création du formulaire config
 
-![draft-config](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/draft-config.png)
+![draft-config](img/draft-config.png)
 
 - Enrichissement du formulaire config avec les composants enregistrés en base
 - Calcul du montant total des composants en euros via une fonction JavaScript (calculmontant.js)
@@ -41,7 +43,7 @@ Bonus : rédaction des tests unitaires (test de lecture des composants et fabric
 
 Note : pour le moment on retourne le contenu du json tel quel
 
-![post-ordinateur-json](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/post-ordinateur-json.png)
+![post-ordinateur-json](img/post-ordinateur-json.png)
 
 - Validation de la requête ajax par le serveur
 
@@ -57,12 +59,12 @@ Note : pour le moment on retourne le contenu du json tel quel
 
   1. Si l'utilisateur n'a pas remplit tous les champs
 
-  ![erreur-formulaire-incomplet](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/erreur-formulaire-incomplet.png)
+  ![erreur-formulaire-incomplet](img/erreur-formulaire-incomplet.png)
   
   2. Si une erreur survient côté serveur on retourne un code 500 
      + json {"message":"Une erreur est survenue dans la requête"}
   
-  ![erreur-serveur](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/erreur-serveur.png)
+  ![erreur-serveur](img/erreur-serveur.png)
 
 
 
@@ -70,7 +72,7 @@ Note : pour le moment on retourne le contenu du json tel quel
 
 - Création de la methode Ordinateur.fetchAll (problème des requêtes imbriquées, résolu en faisant une grande requête SQL ( 12s d'excution (avec augmentation linéaire du temps de d'excution xordinateurs*5 requêtes ) avec 32 entitées vs 1s avec 32 entitées))
 
-  ![test-fetchall-ordinateurs-requetes-imbriquees](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/test-fetchall-ordinateurs-requetes-imbriquees.png)
+  ![test-fetchall-ordinateurs-requetes-imbriquees](img/test-fetchall-ordinateurs-requetes-imbriquees.png)
 
 Capture : Résultat du test avec requêtes imbriquées successives (32 etitées ordinateur = 12s)
 
@@ -86,12 +88,12 @@ Capture : Résultat du test avec requêtes imbriquées successives (32 etitées 
 
 1. Liste des ordinateurs
 
-![redirection-liste-ordinateurs](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/redirection-liste-ordinateurs.png)
+![redirection-liste-ordinateurs](img/redirection-liste-ordinateurs.png)
 
-2. Fiche d'un ordinateur![fiche-ordinateur](https://raw.githubusercontent.com/art-dambrine/java-configomatic/master/img/fiche-ordinateur.png)
+2. Fiche d'un ordinateur![fiche-ordinateur](img/fiche-ordinateur.png)
 
 
-# Bonus : config alternative de la connexion bdd avec Tomcat (poole de connexions)
+# Bonus : config alternative de la connexion bdd avec Tomcat (pool de connexions)
 
 Configurer le `context.xml` dans le Tomcat
 ```
