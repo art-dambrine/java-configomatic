@@ -27,7 +27,7 @@
                 <a class="nav-link" href="<%= application.getContextPath() %>/config">Config</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link h-100 nav-github" href="https://github.com/art-dambrine/java-configomatic" target="_blank"><img
+                <a class="nav-link nav-github" href="https://github.com/art-dambrine/java-configomatic" target="_blank"><img
                         width="20" height="20" src="<%= application.getContextPath() %>/img/github.png" title="GitHub" alt="GitHub"></a>
             </li>
         </ul>
