@@ -25,8 +25,10 @@ public class TestConn extends HttpServlet {
 
         Connection conn = Dbtools.getConnexion();
 
-        PrintWriter out = response.getWriter();
-        out.println(conn.toString());
+        System.out.println(conn.toString());
+
+        /*PrintWriter out = response.getWriter();
+        out.println(conn.toString());*/
 
     }
 }
