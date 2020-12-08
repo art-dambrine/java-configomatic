@@ -24,7 +24,7 @@ Schéma de notre base de donnée :
 
 
 
-Bonus : rédaction des tests unitaires (test de lecture des composants et fabricants)
+Bonus : rédaction des tests fonctionnels (test de lecture des composants et fabricants)
 
 ![first-test-junit](img/first-test-junit.png)
 
